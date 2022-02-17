@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link href="/static/css/table.css" rel="stylesheet">
+<button id="export">Экспорт</button>
+<form action="" method="post" novalidate>
+    {{ form1.hidden_tag() }}
+    {{ form1.submit()}}
+</form>    
+<div class="big-table">
+<table id="exportMe" cellpadding="4" cellspacing="1">
+    <caption>Адаптивный комплекс энергосбережения (АКЭС) {{SN}}</caption>
+    <tr>
+        <th>id</th>
+        <th>start_time</th>
+        <th>end_time</th>
+        <th>reactive_power_A_1</th>
+        <th>reactive_power_B_1</th>
+        <th>reactive_power_C_1</th>
+        <th>active_power_A_1</th>
+        <th>active_power_B_1</th>
+        <th>active_power_C_1</th>
+        <th>voltage_A_1</th>
+        <th>voltage_B_1</th>
+        <th>voltage_C_1</th>
+        <th>cosA_1</th>
+        <th>cosB_1</th>
+        <th>cosC_1</th>
+        <th>reactive_power_A_2</th>
+        <th>reactive_power_B_2</th>
+        <th>reactive_power_C_2</th>
+        <th>active_power_A_2</th>
+        <th>active_power_B_2</th>
+        <th>active_power_C_2</th>
+        <th>voltage_A_2</th>
+        <th>voltage_B_2</th>
+        <th>voltage_C_2</th>
+        <th>cosA_2</th>
+        <th>cosB_2</th>
+        <th>cosC_2</th>
+        <th>blocks_number</th>
+        <th>efficiency</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.id}}</td>
+        <td>{{d.start_time}}</td>
+        <td>{{d.end_time}}</td>
+        <td>{{d.reactive_power_A_1}}</td>
+        <td>{{d.reactive_power_B_1}}</td>
+        <td>{{d.reactive_power_C_1}}</td>
+        <td>{{d.active_power_A_1}}</td>
+        <td>{{d.active_power_B_1}}</td>
+        <td>{{d.active_power_C_1}}</td>
+        <td>{{d.voltage_A_1}}</td>
+        <td>{{d.voltage_B_1}}</td>
+        <td>{{d.voltage_C_1}}</td>
+        <td>{{d.cosA_1}}</td>
+        <td>{{d.cosB_1}}</td>
+        <td>{{d.cosC_1}}</td>
+        <td>{{d.reactive_power_A_2}}</td>
+        <td>{{d.reactive_power_B_2}}</td>
+        <td>{{d.reactive_power_C_2}}</td>
+        <td>{{d.active_power_A_2}}</td>
+        <td>{{d.active_power_B_2}}</td>
+        <td>{{d.active_power_C_2}}</td>
+        <td>{{d.voltage_A_2}}</td>
+        <td>{{d.voltage_B_2}}</td>
+        <td>{{d.voltage_C_2}}</td>
+        <td>{{d.cosA_2}}</td>
+        <td>{{d.cosB_2}}</td>
+        <td>{{d.cosC_2}}</td>
+        <td>{{d.blocks_number}}</td>
+        <td>{{d.efficicency}}</td>        
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<script src="/static/js/export.js" ></script>     
+ 
+{%endblock%}
+

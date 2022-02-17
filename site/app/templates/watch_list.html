@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form action="" method="post" novalidate>
+		{{ form.hidden_tag() }}
+		<h1>Выберите серийный номер установки</h1>
+		{{form.SNs}}
+		<h1>Выберите период:</h1>
+		<p>с</p>
+		{{ form.start(class='DatePickerStart') }}
+		<p>по</p>
+	    {{ form.end(class='DatePickerEnd') }}
+		{{form.submit()}}
+		{% for error in form.start.errors %}
+		{{ error }}
+		{% endfor %}
+	</form>
+{%endblock%}

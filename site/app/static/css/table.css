@@ -1,0 +1,17 @@
+.big-table {
+	overflow: auto;
+	position: relative;
+}
+.big-table table {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 100%;
+	overflow-x: auto;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+  

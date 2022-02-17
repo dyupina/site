@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+        <h3 class="text-center text-white pt-5">Add new user</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Add new user</h3>
+                            <div class="form-group">
+                                <p>
+                                    {{ form.username.label }}<br>
+                                    {{ form.username(size=32) }}<br>
+                                    {% for error in form.username.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                {{ form.password.label }}<br>
+                                {{ form.password(size=32) }}<br>
+                                {% for error in form.password.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group">
+                                <br>
+                                <p>Выберите серийные номера установок<br>
+                                {{form.SNs}}
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                {{ form.user_type }} {{ form.user_type.label }}
+                            </div>
+                            <div>
+                                {{ form.submit() }}
+                            </div>
+                            {% for error in form.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+ {% endblock %}
